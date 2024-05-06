@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Form</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		
+		form {
+			background-color: white;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.1);
+			max-width: 500px;
+			margin: 0 auto;
+		}
+		
+		input[type=text], textarea {
+			width: 100%;
+			padding: 12px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			margin-top: 6px;
+			margin-bottom: 16px;
+			resize: vertical;
+		}
+		
+		input[type=submit] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+		
+		input[type=submit]:hover {
+			background-color: #45a049;
+		}
+		
+		.popup {
+			display: none;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			background-color: rgb(112, 196, 232);
+			color: black;
+			padding: 20px;
+			border-radius: 5px;
+			z-index: 1000;
+		}
+	</style>
+	<link rel="stylesheet" href="M form.CSS">
+</head>
+<header>
+  <nav>
+    <div class="logo">
+      <a href="#">Hacker Attack Solution</a>
+    </div>
+    <ul>
+      <li><a href="Index.html">Home</a></li>
+      <li><a href="WHY.html">WHY HACKERS</a></li>
+      <li><a href="About.html">About Us</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+</head>
+<body> 
+	<h1>FILL THE FOLLOWING FORM </h1>
+	<form id="contact-form" action="process_form.php" method="POST">
+		<label for="name">Your Name:</label>
+		<input type="text" id="name" name="name" placeholder="Enter your name" required>
+		
+		<label for="organisation">Organization Name:</label>
+		<input type="text" id="organisation" name="organisation" placeholder="Enter your organization name" required>
+		
+		<label for="location">Location:</label>
+		<input type="text" id="location" name="location" placeholder="Enter your location" required>
+		
+		<label for="city">City:</label>
+		<input type="text" id="city" name="city" placeholder="Enter your city" required>
+
+		<tr>
+			<td>Hacked in :</td>
+			<td>
+				<input type="radio" name="What are you hached"> All System
+				<input type="radio" name="What are you hached"> Website
+				<input type="radio" name="What are you hached"> Email account
+				<input type="radio" name="What are you hached"> WhatsApp
+				<input type="radio" name="What are you hached"> FaceBook
+			</td>
+		</tr><br>
+		
+		<label for="phone">Phone Number:</label>
+		<input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+		<label for="message">Message:</label>
+		<textarea id="message" name="message" placeholder="Write your message" required></textarea>
+		
+		<input type="submit" value="Submit">
+		<p id="success-message" style="display: none; color: #086d0d;">Submission successful!</p>
+		<div id="popup" class="popup">
+			<p> successfully submitted <br>shortly we will call you. Thanks!</p>
+		</div>
+	</form>
+
+	<footer>
+		<p>&copy; 2024 Hacker Attack Solution. All rights reserved.</p>
+		<ul>
+			<li><a href="#">Privacy Policy</a></li>
+			<li><a href="#">Terms of Service</a></li>
+			<li><a href="#">Contact Us</a></li>
+		</ul>
+	</footer>
+
+	<script>
+		const form = document.getElementById('contact-form');
+		form.addEventListener('submit', function(event) {
+			event.preventDefault();
+			const popup = document.getElementById('popup');
+			const successMessage = document.getElementById('success-message');
+			popup.style.display = 'block';
+			successMessage.style.display = 'block';
+			setTimeout(function() {
+				popup.style.display = 'none';
+				successMessage.style.display = 'none';
+			}, 6000);
+			form.reset();
+		});
+	</script>
+</body>
+</html>
